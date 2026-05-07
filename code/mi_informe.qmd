@@ -1,0 +1,33 @@
+---
+title: "Mi informe"
+author: "ElenaQB"
+data: 06-05-2026
+format: typst
+---
+
+# Mi informe del dataset Nigro et al.
+
+```{r }
+#| echo: FALSE
+#| message: FALSE
+#| warning: FALSE
+#| label: paquetes
+library(tidyverse)
+library(here)
+```
+
+```{r}
+#| echo: FALSE
+dt <- read_csv(here("data/data_clean.csv"))
+```
+
+## Figuras
+
+La media de frutos general es `r mean(dt$count, na.rm = TRUE)`.
+
+```{r}
+#| fig-cap: "Figura 1: plot"
+ggplot(dt, aes(y = count, x = year)) + 
+  geom_point()
+```
+
